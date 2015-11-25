@@ -47,6 +47,9 @@
                 <a href="#about" onclick = $("#menu-close").click(); >About</a>
             </li>
             <li>
+                <a href="#portfolio" onclick = $("#menu-close").click(); >Testimonials</a>
+            </li>
+            <li>
                 <a href="#contact" onclick = $("#menu-close").click(); >Contact</a>
             </li>
         </ul>
@@ -58,9 +61,19 @@
             <h1>CourseSearch</h1>
             <h3>Search Reviews for your Engineering Courses</h3>
             <br>
+            <!--
             <form>
                 <input type="text" class="search" placeholder="Enter Course Number..." size="40" required>
                 <input type="button" class="btn btn-dark btn-lg" value="Search">
+            </form> -->
+            <form class="search" method="post" action="index.html" >
+                <input type="text" name="q" placeholder="Enter Course Number..." />
+                <ul class="results" >
+                    <li><a href="index.html">Search Result #1<br /><span>Description...</span></a></li>
+                    <li><a href="index.html">Search Result #2<br /><span>Description...</span></a></li>
+                    <li><a href="index.html">Search Result #3<br /><span>Description...</span></a></li>
+                    <li><a href="index.html">Search Result #4</a></li>
+                </ul>
             </form>
         </div>
     </header>
@@ -145,14 +158,12 @@
         </div>
     </section>
 
-<!--
-
   
     <section id="portfolio" class="portfolio">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <h2>Our Work</h2>
+                    <h2>Student Testimonials</h2>
                     <hr class="small">
                     <div class="row">
                         <div class="col-md-6">
@@ -185,7 +196,7 @@
                         </div>
                     </div>
      
-                    <a href="#" class="btn btn-dark">View More Items</a>
+                    <a href="#" class="btn btn-dark">View More</a>
                 </div>
      
             </div>
@@ -194,7 +205,7 @@
 
     </section>
 
-
+<!--
     <aside class="call-to-action bg-primary">
         <div class="container">
             <div class="row">
@@ -219,15 +230,15 @@
 
     <!-- Footer -->
     <footer>
-        <div id="contact" class="container">
+        <div id="contact" class="container contact">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
                     <h4><strong>Group 9</strong>
                     </h4>
-                    <p>1234 Generic Place<br>Dankton, CA 42000</p>
+                    <p>1234 Some Place<br>Austin, TX 78705</p>
                     <ul class="list-unstyled">
                         <li><i class="fa fa-phone fa-fw"></i> (123) 456-7890</li>
-                        <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:name@example.com">name@example.com</a>
+                        <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:name@example.com" color="white">name@example.com</a>
                         </li>
                     </ul>
                     <br>
@@ -242,9 +253,9 @@
                         <li>
                             <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
                         </li>
-                    </ul> -->
+                    </ul> 
                     <hr class="small">
-                    <p class="text-muted">Copyright &copy; Your Website 201X</p>
+                    <p class="text-muted">Copyright &copy; A Website 201X</p>-->
                 </div>
             </div>
         </div>
