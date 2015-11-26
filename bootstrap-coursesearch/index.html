@@ -11,6 +11,8 @@
 
     <title>CourseSearch</title>
 
+    <link rel="icon" href="http://previews.123rf.com/images/sublayer/sublayer1505/sublayer150500001/40823583-C-letter-C-C-letter-C-icon-C-symbol-C-letter-icon-C-letter-symbol-Stock-Vector.jpg">
+
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -20,6 +22,11 @@
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Searchbar Suggestions -->
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.autocomplete.min.js"></script>
+    <script type="text/javascript" src="js/currency-autocomplete.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -61,20 +68,20 @@
             <h1>CourseSearch</h1>
             <h3>Search Reviews for your Engineering Courses</h3>
             <br>
+ 
+            <div id="searchfield">
+                <form action="http://coursesearch.info.s3-website-us-west-2.amazonaws.com/results.html">
+                    <input type="text" name="currency" placeholder="Enter Course Name" class="biginput" id="autocomplete">
+                    <input type="submit" class="flatbtn" value="Search">
+                </form>
+            </div><!-- @end #searchfield -->
+
             <!--
             <form>
                 <input type="text" class="search" placeholder="Enter Course Number..." size="40" required>
                 <input type="button" class="btn btn-dark btn-lg" value="Search">
             </form> -->
-            <form class="search" method="post" action="index.html" >
-                <input type="text" name="q" placeholder="Enter Course Number..." />
-                <ul class="results" >
-                    <li><a href="index.html">Search Result #1<br /><span>Description...</span></a></li>
-                    <li><a href="index.html">Search Result #2<br /><span>Description...</span></a></li>
-                    <li><a href="index.html">Search Result #3<br /><span>Description...</span></a></li>
-                    <li><a href="index.html">Search Result #4</a></li>
-                </ul>
-            </form>
+            
         </div>
     </header>
 
