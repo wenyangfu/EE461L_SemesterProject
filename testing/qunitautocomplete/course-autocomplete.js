@@ -32,6 +32,7 @@ $(function(){
     { value: 'EE360 Special Problems in Electrical and Computer Engineering', data: 'EE360' },
     { value: 'EE460 Special Problems in Electrical and Computer Engineering', data: 'EE460' },
     { value: 'EE360C Algorithms', data: 'EE360C' },
+    { value: 'EE360C Algorithms', data: 'EE360C' },
     { value: 'EE360F Introduction to Software Engineering', data: 'EE360F' },
     { value: 'EE460M Digital Systems Design Using HDL', data: 'EE460M' },
     { value: 'EE460N Computer Architecture', data: 'EE460N' },
@@ -55,14 +56,97 @@ $(function(){
     { value: 'EE379K Operating Systems', data: 'EE379K' },
   ];
   
-  // setup autocomplete function pulling from currencies[] array
-  $('#autocomplete').autocomplete({
-    lookup: courses,
-    onSelect: function (suggestion) {
-      var thehtml = '<strong>Course Name:</strong> ' + suggestion.value + ' <br> <strong>Symbol:</strong> ' + suggestion.data;
-      $('#outputcontent').html(thehtml);
+    QUnit.test("no duplicate id test", function( assert ) {
+        var i, j , str;
+        for(i = 0; i < courses.length; i++) {
+            for(j = 0; j < courses.length; j++) {
+                if(i != j) {
+                    assert.ok(courses[i].data != courses[j].data, str = courses[i].data.concat(" is not "+courses[j].data));
+                }
+            }
+        }
+
+    });
+
+    QUnit.test("no duplicate name test", function( assert ) {
+        var i, j , str;
+        for(i = 0; i < courses.length; i++) {
+            for(j = 0; j < courses.length; j++) {
+                if(i != j) {
+                    assert.ok(courses[i].value != courses[j].value, str = courses[i].value.concat(" is not "+courses[j].value));
+                }
+            }
+        }
+
+    });
+
+
+    QUnit.test("matching course id test", function( assert ) {
+        var i;
+        for(i = 0; i < courses.length; i++) {
+            var str = courses[i].value;
+            var strfirst = str.split(' ');
+            strfirst = strfirst[0];
+            assert.equal(strfirst, courses[i].data, str = courses[i].data.concat(" == "+strfirst));
+        }
+        
+    });
+
+    function shuffle(array) {
+        var currentIndex = array.length, temporaryValue, randomIndex ;
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+            // And swap it with the current element.
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+        return array;
     }
-  });
-  
+
+    QUnit.test("scrambled no duplicate id test", function( assert ) {
+        var i, j , str;
+        var coursesclone = courses.slice(0); //clones courses array
+        shuffle(coursesclone);
+        for(i = 0; i < coursesclone.length; i++) {
+            for(j = 0; j < coursesclone.length; j++) {
+                if(i != j) {
+                    assert.ok(coursesclone[i].data != coursesclone[j].data, str = coursesclone[i].data.concat(" is not "+coursesclone[j].data));
+                }
+            }
+        }
+
+    });
+
+    QUnit.test("scrambled no duplicate name test", function( assert ) {
+        var i, j , str;
+        var coursesclone = courses.slice(0); //clones courses array
+        shuffle(coursesclone);
+        for(i = 0; i < coursesclone.length; i++) {
+            for(j = 0; j < coursesclone.length; j++) {
+                if(i != j) {
+                    assert.ok(coursesclone[i].value != coursesclone[j].value, str = coursesclone[i].value.concat(" is not "+coursesclone[j].value));
+                }
+            }
+        }
+
+    });
+
+
+    QUnit.test("scrambled matching course id test", function( assert ) {
+        var i;
+        var coursesclone = courses.slice(0); //clones courses array
+        shuffle(coursesclone);
+        for(i = 0; i < coursesclone.length; i++) {
+            var str = coursesclone[i].value;
+            var strfirst = str.split(' ');
+            strfirst = strfirst[0];
+            assert.equal(strfirst, coursesclone[i].data, str = coursesclone[i].data.concat(" == "+strfirst));
+        }
+        
+    });
 
 });
