@@ -1,5 +1,5 @@
 $(function(){
-  var currencies = [
+  var courses = [
     { value: 'EE302 Introduction to Electrical Engineering', data: 'EE302' },
     { value: 'EE306 Introduction to Computing', data: 'EE306' },
     { value: 'EE309S Devel of Solar-Powered Vehicle', data: 'EE309S' },
@@ -57,7 +57,7 @@ $(function(){
   
   // setup autocomplete function pulling from currencies[] array
   $('#autocomplete').autocomplete({
-    lookup: currencies,
+    lookup: courses,
     onSelect: function (suggestion) {
       var thehtml = '<strong>Course Name:</strong> ' + suggestion.value + ' <br> <strong>Symbol:</strong> ' + suggestion.data;
       $('#outputcontent').html(thehtml);
