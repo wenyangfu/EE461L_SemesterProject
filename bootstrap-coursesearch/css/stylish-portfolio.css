@@ -228,7 +228,7 @@ hr.small {
 }
 
 .img-portfolio:hover {
-    opacity: 0.8;
+  display: block;
 }
 
 /* Container */
@@ -282,6 +282,22 @@ a[href="mailto:name@example.com"] {
 
 a[href="mailto:name@example.com"]:hover { 
     color: #000; 
+}
+
+.tooltip-wrap {
+  position: relative;
+}
+.tooltip-wrap .tooltip-content {
+  display: none;
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+  right: 5%;
+  background-color: #fff;
+  padding: .5em;
+}
+.tooltip-wrap:hover .tooltip-content {
+  display: block;
 }
 
 /* Search */
