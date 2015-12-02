@@ -1,5 +1,5 @@
 $(function(){
-  var currencies = [
+  var courses = [
     { value: 'EE302 Introduction to Electrical Engineering', data: 'EE302' },
     { value: 'EE306 Introduction to Computing', data: 'EE306' },
     { value: 'EE309S Devel of Solar-Powered Vehicle', data: 'EE309S' },
@@ -48,7 +48,7 @@ $(function(){
     { value: 'EE464K Senior Design Project', data: 'EE464K' },
     { value: 'EE464R Research Senior Design Project', data: 'EE464R' },
     { value: 'EE369 Power Systems Engineering', data: 'EE369' },
-    { value: 'EE371R Digital Image and Video Processing', data: 'EE71R' },
+    { value: 'EE371R Digital Image and Video Processing', data: 'EE371R' },
     { value: 'EE372N Telecommunication Networks', data: 'EE372N' },
     { value: 'EE374K Biomedical Electrical Instrument Design', data: 'EE374K' },
     { value: 'EE679HA Undergraduate Honors Thesis', data: 'EE679HA' },
@@ -57,7 +57,7 @@ $(function(){
   
   // setup autocomplete function pulling from currencies[] array
   $('#autocomplete').autocomplete({
-    lookup: currencies,
+    lookup: courses,
     onSelect: function (suggestion) {
       var thehtml = '<strong>Course Name:</strong> ' + suggestion.value + ' <br> <strong>Symbol:</strong> ' + suggestion.data;
       $('#outputcontent').html(thehtml);
