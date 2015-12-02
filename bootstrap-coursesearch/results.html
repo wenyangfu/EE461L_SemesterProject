@@ -31,66 +31,71 @@
 </head>
 
 <body>
-
      <!-- Header -->
     <header id="top" class="header results">
         <div class="text-vertical-center">
-            <h1>Insert Course Name Here</h1>
+            <h1 id = "topname"></h1>
         </div>
     </header>
     
-    <section id="wordcounts" class="callout">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-lg-10 col-lg-offset-1">
-                    <h1><p><br></p>Words most commonly associated with this course</h1>
-                    <br>
-                    <hr class="small">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item">
-                                <h1>
-                                    <strong>Word1</strong>
-                                </h1>
-                                <p>Number of Hits: ?</p>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item"> 
-                                <h1>
-                                    <strong>Word2</strong>
-                                </h1>
-                                <p>Number of Hits: ?</p>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item">
-                               <h1>
-                                    <strong>Word3</strong>
-                                </h1>
-                                <p>Number of Hits: ?</p>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item">
-                               <h1>
-                                    <strong>Word4</strong>
-                                </h1>
-                                <p>Number of Hits: ?</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.row (nested) -->
-                </div>
-                <!-- /.col-lg-10 -->
-            </div>
-            <!-- /.row -->
-        </div>
-    </section>
+    <br>
 
-    <section>
-        <h1>Show FB posts here somehow</h1>
-    </section>
+  
+        
+<div style="width: 50%; margin: 0 auto;" id="dvTable">
+
+<script type="text/javascript">
+function GenerateTable() {
+    //Build an array containing Customer records.
+    var customers = new Array();
+    customers.push(["Post Number", "Message", "Comments"]);
+    customers.push([1, "John Hammond", "United Statesaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"]);
+    customers.push([2, "Mudassar Khan", "India"]);
+    customers.push([3, "Suzanne Mathews", "France"]);
+    customers.push([4, "Robert Schidner", "Russia"]);
+ 
+    //Create a HTML Table element.
+    var table = document.createElement("TABLE");
+    table.border = "1";
+ 
+    //Get the count of columns.
+    var columnCount = customers[0].length;
+ 
+    //Add the header row.
+    var row = table.insertRow(-1);
+    for (var i = 0; i < columnCount; i++) {
+        var headerCell = document.createElement("TH");
+        headerCell.innerHTML = customers[0][i];
+        row.appendChild(headerCell);
+    }
+    //Add the data rows.
+    for (var i = 1; i < customers.length; i++) {
+        row = table.insertRow(-1);
+        for (var j = 0; j < columnCount; j++) {
+            var cell = row.insertCell(-1);
+            cell.innerHTML = customers[i][j];
+        }
+    }
+ 
+    var dvTable = document.getElementById("dvTable");
+    dvTable.innerHTML = "";
+    dvTable.appendChild(table);
+
+    //show header
+    var url = document.location.href;
+    url = url.split('=');
+    url = url[1];
+    url = url.replace(/\W/g, '');
+    var str = "Results for ";
+    str = str.concat(url);
+    document.getElementById('topname').innerHTML = str;
+    
+    }
+
+    window.onload = GenerateTable;
+
+</script>
+</div>
         
 </body>
 

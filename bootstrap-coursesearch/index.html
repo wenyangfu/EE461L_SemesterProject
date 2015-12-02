@@ -70,11 +70,100 @@
             <br>
  
             <div id="searchfield">
-                <form action="http://coursesearch.info.s3-website-us-west-2.amazonaws.com/results.html">
+                <form method="post" onSubmit="return goToResults()" >
                     <input type="text" name="coursename" placeholder="Enter Course Name" class="biginput" id="autocomplete">
-                    <input type="submit" class="flatbtn" value="Search">
+                    <input type="submit" class="flatbtn" value="Search" >
+
+                    <script type="text/javascript">
+                        function goToResults() {
+                            var courses = [
+    { value: 'EE302 Introduction to Electrical Engineering', data: 'EE302' },
+    { value: 'EE306 Introduction to Computing', data: 'EE306' },
+    { value: 'EE309S Devel of Solar-Powered Vehicle', data: 'EE309S' },
+    { value: 'EE411 Circuit Theory', data: 'EE411' },
+    { value: 'EE312 Software Design and Implementation 1', data: 'EE312' },
+    { value: 'EE313 Linear Systems and Signals', data: 'EE313' },
+    { value: 'EE316 Digital Logic Design', data: 'EE316' },
+    { value: 'EE319K Introduction to Embedded Systems', data: 'EE319K' },
+    { value: 'EE422C Software Design and Implementation 2', data: 'EE422C' },
+    { value: 'EE325 Electromagnetic Engineering', data: 'EE325' },
+    { value: 'EE325K Antennas and Wireless Propagation', data: 'EE325K' },
+    { value: 'EE325LX Cooperative Engineering', data: 'EE325LX' },
+    { value: 'EE325LY Cooperative Engineering', data: 'EE325LY' },
+    { value: 'EE325LZ Cooperative Engineering', data: 'EE325LZ' },
+    { value: 'EE225MA Cooperative Engineering', data: 'EE225MA' },
+    { value: 'EE225MB Cooperative Engineering', data: 'EE225MB' },
+    { value: 'EE125N Cooperative Engineering', data: 'EE125N' },
+    { value: 'EE125S Internship in Electrical and Computer Engineering', data: 'EE125S' },
+    { value: 'EE333T Engineering Communication', data: 'EE333T' },
+    { value: 'EE438 Fundamentals of Electrical Circuits 1 Lab', data: 'EE438' },
+    { value: 'EE338L Analog Integrated Circuit Design', data: 'EE338L' },
+    { value: 'EE339 Solid-State Elecronic Devices', data: 'EE339' },
+    { value: 'EE440 Integrated Circuit Nanomanufacturing Techniques', data: 'EE440' },
+    { value: 'EE445L Embedded Systems Design Lab', data: 'EE445L' },
+    { value: 'EE445S Real-Time Digital Signal Processing Lab', data: 'EE445S' },
+    { value: 'EE351K Probability and Random Processes', data: 'EE351K' },
+    { value: 'EE351M Digital Signal Processing', data: 'EE351M' },
+    { value: 'EE160 Special Problems in Electrical and Computer Engineering', data: 'EE160' },
+    { value: 'EE260 Special Problems in Electrical and Computer Engineering', data: 'EE260' },
+    { value: 'EE360 Special Problems in Electrical and Computer Engineering', data: 'EE360' },
+    { value: 'EE460 Special Problems in Electrical and Computer Engineering', data: 'EE460' },
+    { value: 'EE360C Algorithms', data: 'EE360C' },
+    { value: 'EE360F Introduction to Software Engineering', data: 'EE360F' },
+    { value: 'EE460M Digital Systems Design Using HDL', data: 'EE460M' },
+    { value: 'EE460N Computer Architecture', data: 'EE460N' },
+    { value: 'EE460R Introduction to VLSI Design', data: 'EE460R' },
+    { value: 'EE461L Software Engineering and Design Lab', data: 'EE461L' },
+    { value: 'EE361Q Requirements Engineering', data: 'EE361Q' },
+    { value: 'EE362K Introduction to Automatic Control', data: 'EE362K' },
+    { value: 'EE462L Power Electronics Lab', data: 'EE462L' },
+    { value: 'EE362S Development of Solar-Powered Vehicle', data: 'EE362S' },
+    { value: 'EE363N Engineering Acoustics', data: 'EE363N' },
+    { value: 'EE364D Introduction to Engineering Design', data: 'EE364D' },
+    { value: 'EE364E Interdisciplinary Entrepreneurship', data: 'EE364E' },
+    { value: 'EE464H Honors Senior Design Project', data: 'EE464H' },
+    { value: 'EE464K Senior Design Project', data: 'EE464K' },
+    { value: 'EE464R Research Senior Design Project', data: 'EE464R' },
+    { value: 'EE369 Power Systems Engineering', data: 'EE369' },
+    { value: 'EE371R Digital Image and Video Processing', data: 'EE371R' },
+    { value: 'EE372N Telecommunication Networks', data: 'EE372N' },
+    { value: 'EE374K Biomedical Electrical Instrument Design', data: 'EE374K' },
+    { value: 'EE679HA Undergraduate Honors Thesis', data: 'EE679HA' },
+    { value: 'EE379K Operating Systems', data: 'EE379K' },
+  ];
+                            //get first word of input
+                            var entry = document.getElementById('autocomplete').value;
+                            entry = entry.split(' ');
+                            entry = entry[0];
+                            entry.replace(/\W/g, '');
+                            var flag = 0;
+                            var i;
+                            var url = window.location.href;
+                            for(i = 0; i < courses.length; i++) {
+                                
+                                if(entry == courses[i].data.replace(/\W/g, '')){
+                                //if(strcmp(entry, courses[i].data.replace(/\W/g, '')) == 0) {
+                                    url = 'http://coursesearch.info.s3-website-us-west-2.amazonaws.com/' + 'results.html?coursename=' + encodeURIComponent(entry);
+                                }
+                            }
+                           
+                            window.location.href = url;
+                            return false;
+                        }
+
+                        function strcmp(a, b) {
+                            a = a.toString(), b = b.toString();
+                            for (var i=0,n=Math.max(a.length, b.length); i<n && a.charAt(i) === b.charAt(i); ++i);
+                            if (i === n) return 0;
+                            return a.charAt(i) > b.charAt(i) ? -1 : 1;
+                        }
+                    </script>
+                 
                 </form>
+                
             </div><!-- @end #searchfield -->
+
+
 
             <!--
             <form>

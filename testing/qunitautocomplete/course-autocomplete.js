@@ -32,7 +32,6 @@ $(function(){
     { value: 'EE360 Special Problems in Electrical and Computer Engineering', data: 'EE360' },
     { value: 'EE460 Special Problems in Electrical and Computer Engineering', data: 'EE460' },
     { value: 'EE360C Algorithms', data: 'EE360C' },
-    { value: 'EE360C Algorithms', data: 'EE360C' },
     { value: 'EE360F Introduction to Software Engineering', data: 'EE360F' },
     { value: 'EE460M Digital Systems Design Using HDL', data: 'EE460M' },
     { value: 'EE460N Computer Architecture', data: 'EE460N' },
